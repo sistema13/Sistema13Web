@@ -192,7 +192,7 @@ define("ANIO", date("Y"));
                            lo que nos permite ofrecerle una gran variedad de servicios profesionales.</p>
                         <p>Nuestra idea es integrar las artes gr&aacute;ficas con el desarrollo profesional 
                            para crear soluciones confiables y atractivas para el usuario.</p>
-                        <p>Tenemos en mente otorgar una respuesta a las empresas que buscan no solo quien 
+                        <p>Tenemos en mente otorgar una respuesta a las empresas que buscan no solo a alguien que 
                            les desarrolle un sistema, si no quien entienda las necesidades y proponga 
                            soluciones confiables y duraderas, ya que la mayor&iacute;a de las empresas del mismo 
                            sector ofrecen servicios caros y deficientes; nuestra propuesta, por el contrario, 
@@ -201,6 +201,7 @@ define("ANIO", date("Y"));
                         <p>Nos hemos comprometido con la innovaci&oacute;n cont&iacute;nua en nuestros productos y en 
                             mantener una relaci&oacute;n directa con los clientes, para as&iacute; conformarnos como l&iacute;deres 
                             del desarrollo Web y las artes gr&aacute;ficas.</p>
+                        <p>Algunos de nuestros trabajos m&aacute;s destacados son los siguientes:</p>
                     </div>
                     <h3><a href="#">Hospital Infantil de M&eacute;xico Federico G&oacute;mez</a></h3>
                     <div>
@@ -217,7 +218,8 @@ define("ANIO", date("Y"));
                     <h3><a href="#">19th WONCA World Conference of Family Doctors</a></h3>
                     <div>
                         <div id="description" class="description">
-                            Dise&ntilde;o y administraci&oacute;n de la p&aacute;gina web. Desarrollo de sistema de env&iacute;o de res&uacute;menes a presentar durante el evento, con un proceso de evaluaci&oacute;n. Desarrollo del sistema de reservaciones de hospedaje. Todo el sistema y la p&aacute;gina web en idiomas ingl&eacute;s y espa&ntilde;ol.
+                            Dise&ntilde;o y administraci&oacute;n de la p&aacute;gina web. Desarrollo de sistema de env&iacute;o de res&uacute;menes a presentar durante el evento, con un proceso de evaluaci&oacute;n. Desarrollo del sistema de reservaciones de hospedaje. Todo el sistema y la p&aacute;gina web en idiomas ingl&eacute;s y espa&ntilde;ol.<br><br>
+                            <a href="http://www.wonca2010cancun.com" target="_blank">www.Wonca2010Cancun.com</a>
                         </div>
                                 <div id="gallery" class="content">
 					<div id="controls" class="controls"></div>
@@ -265,7 +267,8 @@ define("ANIO", date("Y"));
                     <h3><a href="#">Coordinaci&oacute;n de Investigaci&oacute;n en Salud</a></h3>
                     <div>
                         <div id="description_cis" class="description">
-                            Dise&ntilde;o y administraci&oacute;n de la p&aacute;gina web de la Coordinaci&oacute;n de Investigaci&oacute;n en Salud del Instituto Mexicano del Seguro Social con plantillas adaptadas para Joomla de las oficiales del Sistema Internet de Presidencia. Desarrollo de sistema de Procesos Digitalizados de la propia Coordinaci&oacute;n. Administraci&oacute; y mantenimiento de servidores en linux.
+                            Dise&ntilde;o y administraci&oacute;n de la p&aacute;gina web de la Coordinaci&oacute;n de Investigaci&oacute;n en Salud del Instituto Mexicano del Seguro Social con plantillas adaptadas para Joomla de las oficiales del Sistema Internet de Presidencia. Desarrollo de sistema de Procesos Digitalizados de la propia Coordinaci&oacute;n. Administraci&oacute; y mantenimiento de servidores en linux.<br><br>
+                            <a href="http://www.cis.gob.mx" target="_blank">www.CIS.gob.mx</a>
                         </div>
                                 <div id="gallery_cis" class="content">
 					<div id="controls_cis" class="controls"></div>
@@ -352,15 +355,15 @@ ITJ
                     </div>
                     <h3><a href="#">Contacto</a></h3>
                     <div>
-                        <p>Formulario de contacto:<br /></p>
+                        <p>Ingrese sus datos y alg&uacute;n mensaje y nosotros nos pondremos en contacto a la brevedad posible.<br />Si lo prefiere env&iacute;enos un correo a: <a href="mailto:sistema13@sistema13.com">Sistema13@Sistema13.com</a>, para esto le pedimos descargue nuestra "Hoja de trabajo" (<a href="downloads/hoja_de_trabajo_del_cliente.odt" target="_blank">en formato word</a> o <a href="downloads/hoja_de_trabajo_del_cliente.pdf" target="_blank">en pdf</a>) que nos servir&aacute; como gu&iacute;a para identificar las necesidades espec&iacute;ficas de su proyecto (no es necesario que ingrese toda la informaci&oacute;n que viene en ella, pero le agradecer&iacute;amos que est&eacute; lo m&aacute;s completo posible).</p>
                         <form>
                             <div id="result" style="display:none;"></div>
                             <div id="contacto">
-                                <p>Nombre:<br />
-                                    <input type="text" name="contacto_nombre" id="contacto_nombre" style="width:100%;" /></p>
-                                <p>E-mail:<br />
-                                    <input type="text" name="contacto_email" id="contacto_email" style="width:100%;" /></p>
-                                <p>Mensaje:<br />
+                                <p>Nombre: <br />
+                                    <input type="text" name="contacto_nombre" id="contacto_nombre" style="width:100%;" /><br />
+                                   E-mail: <br />
+                                    <input type="text" name="contacto_email" id="contacto_email" style="width:100%;" /><br />
+                                   Mensaje: <br />
                                     <textarea name="contacto_mensaje" id="contacto_mensaje" rows="5" style="width:100%;"></textarea></p>
                                 <p><input type="button" name="button" id="button" value="Enviar mensaje" onclick="doContact();" /></p>
                             </div>
