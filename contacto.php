@@ -1,4 +1,6 @@
 <?php
+// @TODO: Agregar envio de correo electronico avisando que hay un nuevo mensaje
+
     include_once("configuracion.php");
     $link = mysql_connect($srvr,$usr,$pass) OR die("No se pudo realizar la conexion");
     mysql_select_db($dbase, $link);

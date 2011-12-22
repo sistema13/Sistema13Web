@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+// @TODO: completar los demas trabajos
+// @TODO: cargar logotipo de sistemas
+// @TODO: mayor seguridad en archivo de configuracion de base de datos
 define("ANIO", date("Y"));
 
 ?>
