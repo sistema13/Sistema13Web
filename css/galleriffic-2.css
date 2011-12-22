@@ -20,7 +20,7 @@ div.content a:focus, div.content a:hover, div.content a:active {
 }
 div.controls {
 	margin-top: 5px;
-	height: 23px;
+	height: 1px;  /* originalmente 23px */
 }
 div.controls a {
 	padding: 10px;
@@ -34,7 +34,7 @@ div.nav-controls {
 div.slideshow-container {
 	position: relative;
 	clear: both;
-	height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
+	height: 270px; /* This should be set to be at least the height of the largest image in the slideshow */
 }
 div.loader {
 	position: absolute;
@@ -44,7 +44,7 @@ div.loader {
 	background-repeat: no-repeat;
 	background-position: center;
 	width: 550px;
-	height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
+	height: 270px; /* This should be set to be at least the height of the largest image in the slideshow */
 }
 div.slideshow {
 
@@ -58,8 +58,8 @@ div.slideshow span.image-wrapper {
 div.slideshow a.advance-link {
 	display: block;
 	width: 575px;
-	height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
-	line-height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
+	height: 268px; /* This should be set to be at least the height of the largest image in the slideshow */
+	line-height: 270px; /* This should be set to be at least the height of the largest image in the slideshow */
 	text-align: center;
 }
 div.slideshow a.advance-link:hover, div.slideshow a.advance-link:active, div.slideshow a.advance-link:visited {
@@ -75,7 +75,7 @@ div.download {
 div.caption-container {
 	position: relative;
 	clear: left;
-	height: 75px;
+	height: 69px;  /* originalmente era 75px */
 }
 span.image-caption {
 	display: block;

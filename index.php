@@ -83,8 +83,8 @@ define("ANIO", date("Y"));
                     delay:                     2500,
                     numThumbs:                 3,
                     preloadAhead:              10,
-                    enableTopPager:            true,
-                    enableBottomPager:         true,
+                    enableTopPager:            false,
+                    enableBottomPager:         false,
                     maxPagesToShow:            7,
                     imageContainerSel:         '#slideshow',
                     controlsContainerSel:      '#controls',
@@ -115,6 +115,44 @@ define("ANIO", date("Y"));
                         this.fadeTo('fast', 1.0);
                     }
                 });
+                
+                var gallery = $('#thumbs_cis').galleriffic({
+                    delay:                     2500,
+                    numThumbs:                 3,
+                    preloadAhead:              10,
+                    enableTopPager:            false,
+                    enableBottomPager:         false,
+                    maxPagesToShow:            7,
+                    imageContainerSel:         '#slideshow_cis',
+                    controlsContainerSel:      '#controls_cis',
+                    captionContainerSel:       '#caption_cis',
+                    loadingContainerSel:       '#loading_cis',
+                    renderSSControls:          false,
+                    renderNavControls:         false,
+                    playLinkText:              'Play Slideshow',
+                    pauseLinkText:             'Pause Slideshow',
+                    prevLinkText:              '&lsaquo; Previous Photo',
+                    nextLinkText:              'Next Photo &rsaquo;',
+                    nextPageLinkText:          'Next &rsaquo;',
+                    prevPageLinkText:          '&lsaquo; Prev',
+                    enableHistory:             false,
+                    autoStart:                 false,
+                    syncTransitions:           true,
+                    defaultTransitionDuration: 900,
+                    onSlideChange:             function(prevIndex, nextIndex) {
+                        // 'this' refers to the gallery, which is an extension of $('#thumbs')
+                        this.find('ul.thumbs').children()
+                        .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+                        .eq(nextIndex).fadeTo('fast', 1.0);
+                    },
+                    onPageTransitionOut:       function(callback) {
+                        this.fadeTo('fast', 0.0, callback);
+                    },
+                    onPageTransitionIn:        function() {
+                        this.fadeTo('fast', 1.0);
+                    }
+                });
+                
             });
 	</script>
     </head>
@@ -129,28 +167,27 @@ define("ANIO", date("Y"));
                 <div id="accordion">
                     <h3><a href="#">Home</a></h3>
                     <div>
-                        <p>Somos un sólido equipo de especialistas en plataforma Web y artes gráficas, 
+                        <p>Somos un s&oacute;lido equipo de especialistas en plataforma Web y artes gr&aacute;ficas, 
                            lo que nos permite ofrecerle una gran variedad de servicios profesionales.</p>
-                        <p>Nuestra idea es integrar las artes gráficas con el desarrollo profesional 
+                        <p>Nuestra idea es integrar las artes gr&aacute;ficas con el desarrollo profesional 
                            para crear soluciones confiables y atractivas para el usuario.</p>
                         <p>Tenemos en mente otorgar una respuesta a las empresas que buscan no solo quien 
                            les desarrolle un sistema, si no quien entienda las necesidades y proponga 
-                           soluciones confiables y duraderas, ya que la mayoría de las empresas del mismo 
+                           soluciones confiables y duraderas, ya que la mayor&iacute;a de las empresas del mismo 
                            sector ofrecen servicios caros y deficientes; nuestra propuesta, por el contrario, 
                            se basa en ofrecer soluciones innovadoras y de alta calidad a precios sumamente competitivos.</p>
-                        <p>Contamos con más de <?php echo (ANIO - 2001); ?> años de experiencia en el mercado informático ampliando nuestros conocimientos 
-                            a la par de las nuevas tecnologías.</p>
-                        <p>Nos hemos comprometido con la innovación contínua en nuestros productos y en 
-                            mantener una relación directa con los clientes, para así conformarnos como líderes 
-                            del desarrollo Web y las artes gráficas.</p>
+                        <p>Contamos con m&aacute;s de <?php echo (ANIO - 2001); ?> a&ntilde;os de experiencia en el mercado inform&aacute;tico ampliando nuestros conocimientos a la par de las nuevas tecnolog&iacute;as.</p>
+                        <p>Nos hemos comprometido con la innovaci&oacute;n cont&iacute;nua en nuestros productos y en 
+                            mantener una relaci&oacute;n directa con los clientes, para as&iacute; conformarnos como l&iacute;deres 
+                            del desarrollo Web y las artes gr&aacute;ficas.</p>
                     </div>
-                    <h3><a href="#">Hospital Infantil de México Federico Gómez</a></h3>
+                    <h3><a href="#">Hospital Infantil de M&eacute;xico Federico G&oacute;mez</a></h3>
                     <div>
                         <p>
-                            Sistema de Registro Electrónico de Protocolos de Investigación
+                            Sistema de Administraci&oacute;n de Protocolos de Investigaci&oacute;n
                         </p>
                     </div>
-                    <h3><a href="#">Hospital Infantil de México Federico Gómez</a></h3>
+                    <h3><a href="#">Hospital Infantil de M&eacute;xico Federico G&oacute;mez</a></h3>
                     <div>
                         <p>
                             Base de datos de Cuestionarios
@@ -159,8 +196,7 @@ define("ANIO", date("Y"));
                     <h3><a href="#">19th WONCA World Conference of Family Doctors</a></h3>
                     <div>
                         <div id="description" class="description">
-                        Somos un sólido equipo de especialistas en plataforma Web y artes gráficas, 
-                           lo que nos permite ofrecerle una gran variedad de servicios profesionales.
+                            Dise&ntilde;o y administraci&oacute;n de la p&aacute;gina web. Desarrollo de sistema de env&iacute;o de res&uacute;menes a presentar durante el evento, con un proceso de evaluaci&oacute;n. Desarrollo del sistema de reservaciones de hospedaje. Todo el sistema y la p&aacute;gina web en idiomas ingl&eacute;s y espa&ntilde;ol.
                         </div>
                                 <div id="gallery" class="content">
 					<div id="controls" class="controls"></div>
@@ -173,31 +209,29 @@ define("ANIO", date("Y"));
 				<div id="thumbs" class="navigation">
 					<ul class="thumbs noscript">
 						<li>
-							<a class="thumb" name="leaf" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0">
-								<img src="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_s.jpg" alt="Title #0" />
+							<a class="thumb" name="webpage_es" href="images/wonca1.jpg" title="Spanish Web Page">
+								<img src="images/wonca1t.jpg" alt="Spanish Web Page" />
 							</a>
 							<div class="caption">
-								<div class="image-title">Title #0</div>
-								<div class="image-desc">Description</div>
+                                                            Dise&ntilde;o de la p&aacute;gina web en idioma Espa&ntilde;ol.
 							</div>
 						</li>
 
 						<li>
-							<a class="thumb" name="drop" href="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9.jpg" title="Title #1">
-								<img src="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9_s.jpg" alt="Title #1" />
+							<a class="thumb" name="webpage_en" href="images/wonca2.jpg" title="English Web Page">
+								<img src="images/wonca2t.jpg" alt="English Web Page" />
 							</a>
 							<div class="caption">
-								Any html can be placed here ...
+								Dise&ntilde;o de la p&aacute;gina web en idioma Ingl&eacute;s.
 							</div>
 						</li>
 
 						<li>
-							<a class="thumb" name="bigleaf" href="http://farm3.static.flickr.com/2093/2538168854_f75e408156.jpg" title="Title #2">
-								<img src="http://farm3.static.flickr.com/2093/2538168854_f75e408156_s.jpg" alt="Title #2" />
+							<a class="thumb" name="admin" href="images/wonca3.jpg" title="User Administrator">
+								<img src="images/wonca3t.jpg" alt="User Administrator" />
 							</a>
 							<div class="caption">
-								<div class="image-title">Title #2</div>
-								<div class="image-desc">Description</div>
+								Administrador de usuarios registrados y de trabajos enviados a evaluaci&oacute;n.
 							</div>
 						</li>
 
@@ -207,20 +241,52 @@ define("ANIO", date("Y"));
                         
                     </div>
                     
-                    <h3><a href="#">Coordinación de Investigación en Salud</a></h3>
+                    <h3><a href="#">Coordinaci&oacute;n de Investigaci&oacute;n en Salud</a></h3>
                     <div>
-                        <p>
-HIMFG (Cuestionario)
-wonca
-CIS
-Naturella (BUS)
-IBS
-ITJ
-                        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                        odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                        </p>
+                        <div id="description_cis" class="description">
+                            Dise&ntilde;o y administraci&oacute;n de la p&aacute;gina web de la Coordinaci&oacute;n de Investigaci&oacute;n en Salud del Instituto Mexicano del Seguro Social con plantillas adaptadas para Joomla de las oficiales del Sistema Internet de Presidencia. Desarrollo de sistema de Procesos Digitalizados de la propia Coordinaci&oacute;n. Administraci&oacute; y mantenimiento de servidores en linux.
+                        </div>
+                                <div id="gallery_cis" class="content">
+					<div id="controls_cis" class="controls"></div>
+					<div class="slideshow-container">
+						<div id="loading_cis" class="loader"></div>
+						<div id="slideshow_cis" class="slideshow"></div>
+					</div>
+					<div id="caption_cis" class="caption-container"></div>
+				</div>
+				<div id="thumbs_cis" class="navigation">
+					<ul class="thumbs noscript">
+						<li>
+							<a class="thumb" name="leaf" href="images/cis1.jpg" title="Title #0">
+								<img src="images/cis1t.jpg" alt="Title #0" />
+							</a>
+							<div class="caption">
+                                                            Dise&ntilde;o de la p&aacute;gina web en idioma Espa&ntilde;ol.
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" name="drop" href="images/cis2.jpg" title="Title #1">
+								<img src="images/cis2t.jpg" alt="Title #1" />
+							</a>
+							<div class="caption">
+								Dise&ntilde;o de la p&aacute;gina web en idioma Ingl&eacute;s.
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" name="bigleaf" href="images/cis3.jpg" title="Title #2">
+								<img src="images/cis3t.jpg" alt="Title #2" />
+							</a>
+							<div class="caption">
+								Administrador de usuarios registrados y de trabajos enviados a evaluaci&oacute;n.
+							</div>
+						</li>
+
+					</ul>
+				</div>
+				<div style="clear: both;"></div>
+                        
                     </div>
                     <h3><a href="#">BeingGirl</a></h3>
                     <div>
@@ -285,7 +351,7 @@ ITJ
                         </form>
                     </div>
                 </div>
-                <p>&copy; México, D.F., <?php echo ANIO; ?></p>
+                <p>&copy; M&eacute;xico, D.F., <?php echo ANIO; ?></p>
             </div>
             <div class='clear'>&nbsp;</div>
     </body>
