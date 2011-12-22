@@ -1,6 +1,7 @@
 <?php
-    $link = mysql_connect("localhost","root","ackbar") OR die("No se pudo realizar la conexión");
-    mysql_select_db("sistema13_web", $link);
+    include_once("configuracion.php");
+    $link = mysql_connect($srvr,$usr,$pass) OR die("No se pudo realizar la conexion");
+    mysql_select_db($dbase, $link);
     
     $nombre     =   utf8_decode(mysql_real_escape_string($_POST["nombre"]));
     $email      =   utf8_decode(mysql_real_escape_string($_POST["email"]));

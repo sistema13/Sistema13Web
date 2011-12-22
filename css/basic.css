@@ -19,6 +19,9 @@ a:focus, a:hover, a:active {
 p, li {
 	line-height: 1.8em;
 }
+p.frase {
+    font-weight: bold;
+}
 h1, h2 {
 	font-family: "Trebuchet MS", Verdana, sans-serif;
 	margin: 0 0 10px 0;

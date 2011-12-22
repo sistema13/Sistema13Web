@@ -85,6 +85,7 @@ define("ANIO", date("Y"));
                     preloadAhead:              10,
                     enableTopPager:            false,
                     enableBottomPager:         false,
+                    enableKeyboardNavigation:  false,
                     maxPagesToShow:            7,
                     imageContainerSel:         '#slideshow',
                     controlsContainerSel:      '#controls',
@@ -122,6 +123,7 @@ define("ANIO", date("Y"));
                     preloadAhead:              10,
                     enableTopPager:            false,
                     enableBottomPager:         false,
+                    enableKeyboardNavigation:  false,
                     maxPagesToShow:            7,
                     imageContainerSel:         '#slideshow_cis',
                     controlsContainerSel:      '#controls_cis',
@@ -160,8 +162,24 @@ define("ANIO", date("Y"));
         <div class="container container_6">
             <div class='grid_2'>
             <p>LOGOTIPO</p>
-            </div><div class='grid_4'>
-            <p>Frase</p>
+            </div><div class='grid_4'><p class="frase"><?php 
+    include_once("configuracion.php");
+    $link = mysql_connect($srvr,$usr,$pass) OR die("No se pudo realizar la conexion");
+    mysql_select_db($dbase, $link);
+    
+    $sql = "SELECT COUNT(*) AS cuenta FROM frases";
+    $result = mysql_query($sql);
+    $cuenta = mysql_fetch_assoc($result);
+    $total = $cuenta['cuenta'];
+    
+    $idfrase = rand(1,$total);
+    
+    $sql = "SELECT frase FROM frases WHERE idfrases=" . $idfrase;
+    $result = mysql_query($sql);
+    $fila = mysql_fetch_assoc($result);
+    echo $fila['frase'];
+    mysql_close($link);
+    ?></p>
             </div><div class='clear'>&nbsp;</div>
             <div class="grid_6">
                 <div id="accordion">
@@ -257,29 +275,29 @@ define("ANIO", date("Y"));
 				<div id="thumbs_cis" class="navigation">
 					<ul class="thumbs noscript">
 						<li>
-							<a class="thumb" name="leaf" href="images/cis1.jpg" title="Title #0">
-								<img src="images/cis1t.jpg" alt="Title #0" />
+                                                    <a class="thumb" name="leaf" href="images/cis1.jpg" title="P&aacute;gina Principal">
+                                                        <img src="images/cis1t.jpg" alt="P&aacute;gina Principal" />
 							</a>
 							<div class="caption">
-                                                            Dise&ntilde;o de la p&aacute;gina web en idioma Espa&ntilde;ol.
+                                                            Dise&ntilde;o de la p&aacute;gina web adaptando plantillas de Joomla CMS.
 							</div>
 						</li>
 
 						<li>
-							<a class="thumb" name="drop" href="images/cis2.jpg" title="Title #1">
-								<img src="images/cis2t.jpg" alt="Title #1" />
+							<a class="thumb" name="drop" href="images/cis2.jpg" title="Sistema de Procesos Digitalizados">
+								<img src="images/cis2t.jpg" alt="Sistema de Procesos Digitalizados" />
 							</a>
 							<div class="caption">
-								Dise&ntilde;o de la p&aacute;gina web en idioma Ingl&eacute;s.
+								Coordinaci&oacute;n del desarrollo del sistema de procesos digitalizados.
 							</div>
 						</li>
 
 						<li>
-							<a class="thumb" name="bigleaf" href="images/cis3.jpg" title="Title #2">
-								<img src="images/cis3t.jpg" alt="Title #2" />
+							<a class="thumb" name="bigleaf" href="images/cis3.jpg" title="Descargas de Formatos">
+								<img src="images/cis3t.jpg" alt="Descargas de Formatos" />
 							</a>
 							<div class="caption">
-								Administrador de usuarios registrados y de trabajos enviados a evaluaci&oacute;n.
+								Administrador de descargas de diversos documentos.
 							</div>
 						</li>
 
