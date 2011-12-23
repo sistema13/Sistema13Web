@@ -158,6 +158,82 @@ define("ANIO", date("Y"));
                     }
                 });
                 
+                var gallery = $('#thumbs_bgirl').galleriffic({
+                    delay:                     2500,
+                    numThumbs:                 3,
+                    preloadAhead:              10,
+                    enableTopPager:            false,
+                    enableBottomPager:         false,
+                    enableKeyboardNavigation:  false,
+                    maxPagesToShow:            7,
+                    imageContainerSel:         '#slideshow_bgirl',
+                    controlsContainerSel:      '#controls_bgirl',
+                    captionContainerSel:       '#caption_bgirl',
+                    loadingContainerSel:       '#loading_bgirl',
+                    renderSSControls:          false,
+                    renderNavControls:         false,
+                    playLinkText:              'Play Slideshow',
+                    pauseLinkText:             'Pause Slideshow',
+                    prevLinkText:              '&lsaquo; Previous Photo',
+                    nextLinkText:              'Next Photo &rsaquo;',
+                    nextPageLinkText:          'Next &rsaquo;',
+                    prevPageLinkText:          '&lsaquo; Prev',
+                    enableHistory:             false,
+                    autoStart:                 false,
+                    syncTransitions:           true,
+                    defaultTransitionDuration: 900,
+                    onSlideChange:             function(prevIndex, nextIndex) {
+                        // 'this' refers to the gallery, which is an extension of $('#thumbs')
+                        this.find('ul.thumbs').children()
+                        .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+                        .eq(nextIndex).fadeTo('fast', 1.0);
+                    },
+                    onPageTransitionOut:       function(callback) {
+                        this.fadeTo('fast', 0.0, callback);
+                    },
+                    onPageTransitionIn:        function() {
+                        this.fadeTo('fast', 1.0);
+                    }
+                });
+                
+                var gallery = $('#thumbs_itj').galleriffic({
+                    delay:                     2500,
+                    numThumbs:                 3,
+                    preloadAhead:              10,
+                    enableTopPager:            false,
+                    enableBottomPager:         false,
+                    enableKeyboardNavigation:  false,
+                    maxPagesToShow:            7,
+                    imageContainerSel:         '#slideshow_itj',
+                    controlsContainerSel:      '#controls_itj',
+                    captionContainerSel:       '#caption_itj',
+                    loadingContainerSel:       '#loading_itj',
+                    renderSSControls:          false,
+                    renderNavControls:         false,
+                    playLinkText:              'Play Slideshow',
+                    pauseLinkText:             'Pause Slideshow',
+                    prevLinkText:              '&lsaquo; Previous Photo',
+                    nextLinkText:              'Next Photo &rsaquo;',
+                    nextPageLinkText:          'Next &rsaquo;',
+                    prevPageLinkText:          '&lsaquo; Prev',
+                    enableHistory:             false,
+                    autoStart:                 false,
+                    syncTransitions:           true,
+                    defaultTransitionDuration: 900,
+                    onSlideChange:             function(prevIndex, nextIndex) {
+                        // 'this' refers to the gallery, which is an extension of $('#thumbs')
+                        this.find('ul.thumbs').children()
+                        .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+                        .eq(nextIndex).fadeTo('fast', 1.0);
+                    },
+                    onPageTransitionOut:       function(callback) {
+                        this.fadeTo('fast', 0.0, callback);
+                    },
+                    onPageTransitionIn:        function() {
+                        this.fadeTo('fast', 1.0);
+                    }
+                });
+                
             });
 	</script>
     </head>
@@ -314,19 +390,53 @@ define("ANIO", date("Y"));
                     </div>
                     <h3><a href="#">BeingGirl</a></h3>
                     <div>
-                        <p>
-HIMFG (Cuestionario)
-wonca
-CIS
-Naturella (BUS)
-IBS
-ITJ
-                        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                        odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                        </p>
+                        <div id="description_bgirl" class="description">
+                            Desarrollo de un sistema de administraci&oacute;n de contenido de la p&aacute;gina web. Todo el sistema y la p&aacute;gina web en idiomas portugu&eacute;s y espa&ntilde;ol.<br><br>
+                            <a href="http://www.beinggirl.net" target="_blank">www.BeingGirl.net</a>
+                        </div>
+                                <div id="gallery_bgirl" class="content">
+					<div id="controls_bgirl" class="controls"></div>
+					<div class="slideshow-container">
+						<div id="loading_bgirl" class="loader"></div>
+						<div id="slideshow_bgirl" class="slideshow"></div>
+					</div>
+					<div id="caption_bgirl" class="caption-container"></div>
+				</div>
+				<div id="thumbs_bgirl" class="navigation">
+					<ul class="thumbs noscript">
+						<li>
+							<a class="thumb" name="webpage_es" href="images/bgirl1.jpg" title="Spanish Web Page">
+								<img src="images/bgirl1t.jpg" alt="Spanish Web Page" />
+							</a>
+							<div class="caption">
+                                                            Dise&ntilde;o de la p&aacute;gina web en idioma Espa&ntilde;ol.
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" name="webpage_en" href="images/bgirl2.jpg" title="English Web Page">
+								<img src="images/bgirl2t.jpg" alt="English Web Page" />
+							</a>
+							<div class="caption">
+								Dise&ntilde;o de la p&aacute;gina web en idioma Ingl&eacute;s.
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" name="admin" href="images/bgirl3.jpg" title="User Administrator">
+								<img src="images/bgirl3t.jpg" alt="User Administrator" />
+							</a>
+							<div class="caption">
+								Administrador de usuarios registrados y de trabajos enviados a evaluaci&oacute;n.
+							</div>
+						</li>
+
+					</ul>
+				</div>
+				<div style="clear: both;"></div>
+                        
                     </div>
+                    
                     <h3><a href="#">International Business Solutions</a></h3>
                     <div>
                         <p>
