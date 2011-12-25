@@ -3,6 +3,7 @@
 // @TODO: completar los demas trabajos
 // @TODO: cargar logotipo de sistemas
 // @TODO: mayor seguridad en archivo de configuracion de base de datos
+// @TODO: agregar contenido por medio de la base de datos
 define("ANIO", date("Y"));
 
 ?>
@@ -16,11 +17,11 @@ define("ANIO", date("Y"));
         
         <title>P&aacute;gina web de Sistema13.com</title>
         
+        <link rel="stylesheet" href="css/basic.css" type="text/css" />
         <link rel="stylesheet" href="css/redmond/jquery-ui-1.8.16.custom.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/960.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="css/basic.css" type="text/css" />
         <link rel="stylesheet" href="css/galleriffic-2.css" type="text/css" />
-        <!-- We only want the thunbnails to display when javascript is disabled -->
+        <!-- We only want the thumbnails to display when javascript is disabled -->
         <script type="text/javascript">
             document.write('<style>.noscript { display: none; }</style>');
         </script>
@@ -40,6 +41,7 @@ define("ANIO", date("Y"));
                     value: 10
                 });
             });
+            
             function doContact() {
                 $('#contacto').slideUp("fast");
                 $("#result").slideUp("fast");
@@ -82,45 +84,14 @@ define("ANIO", date("Y"));
                 });
 
                 // Initialize Advanced Galleriffic Gallery
-                var gallery = $('#thumbs').galleriffic({
-                    delay:                     2500,
-                    numThumbs:                 3,
-                    preloadAhead:              10,
-                    enableTopPager:            false,
-                    enableBottomPager:         false,
-                    enableKeyboardNavigation:  false,
-                    maxPagesToShow:            7,
-                    imageContainerSel:         '#slideshow',
-                    controlsContainerSel:      '#controls',
-                    captionContainerSel:       '#caption',
-                    loadingContainerSel:       '#loading',
-                    renderSSControls:          false,
-                    renderNavControls:         false,
-                    playLinkText:              'Play Slideshow',
-                    pauseLinkText:             'Pause Slideshow',
-                    prevLinkText:              '&lsaquo; Previous Photo',
-                    nextLinkText:              'Next Photo &rsaquo;',
-                    nextPageLinkText:          'Next &rsaquo;',
-                    prevPageLinkText:          '&lsaquo; Prev',
-                    enableHistory:             false,
-                    autoStart:                 false,
-                    syncTransitions:           true,
-                    defaultTransitionDuration: 900,
-                    onSlideChange:             function(prevIndex, nextIndex) {
-                        // 'this' refers to the gallery, which is an extension of $('#thumbs')
-                        this.find('ul.thumbs').children()
-                        .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
-                        .eq(nextIndex).fadeTo('fast', 1.0);
-                    },
-                    onPageTransitionOut:       function(callback) {
-                        this.fadeTo('fast', 0.0, callback);
-                    },
-                    onPageTransitionIn:        function() {
-                        this.fadeTo('fast', 1.0);
-                    }
-                });
+<?php
+    $sufijos = array( 'wonca', 'cis', 'bgirl', 'itj');  // 'himfgsapi', 'himfgliso', --  'ibs',
+    foreach($sufijos as $key=>$value){
+?>
+        
+                // <?php echo $key . " " . $value; ?>
                 
-                var gallery = $('#thumbs_cis').galleriffic({
+                var gallery = $('#thumbs_<?php echo $value; ?>').galleriffic({
                     delay:                     2500,
                     numThumbs:                 3,
                     preloadAhead:              10,
@@ -128,10 +99,10 @@ define("ANIO", date("Y"));
                     enableBottomPager:         false,
                     enableKeyboardNavigation:  false,
                     maxPagesToShow:            7,
-                    imageContainerSel:         '#slideshow_cis',
-                    controlsContainerSel:      '#controls_cis',
-                    captionContainerSel:       '#caption_cis',
-                    loadingContainerSel:       '#loading_cis',
+                    imageContainerSel:         '#slideshow_<?php echo $value; ?>',
+                    controlsContainerSel:      '#controls_<?php echo $value; ?>',
+                    captionContainerSel:       '#caption_<?php echo $value; ?>',
+                    loadingContainerSel:       '#loading_<?php echo $value; ?>',
                     renderSSControls:          false,
                     renderNavControls:         false,
                     playLinkText:              'Play Slideshow',
@@ -157,82 +128,9 @@ define("ANIO", date("Y"));
                         this.fadeTo('fast', 1.0);
                     }
                 });
-                
-                var gallery = $('#thumbs_bgirl').galleriffic({
-                    delay:                     2500,
-                    numThumbs:                 3,
-                    preloadAhead:              10,
-                    enableTopPager:            false,
-                    enableBottomPager:         false,
-                    enableKeyboardNavigation:  false,
-                    maxPagesToShow:            7,
-                    imageContainerSel:         '#slideshow_bgirl',
-                    controlsContainerSel:      '#controls_bgirl',
-                    captionContainerSel:       '#caption_bgirl',
-                    loadingContainerSel:       '#loading_bgirl',
-                    renderSSControls:          false,
-                    renderNavControls:         false,
-                    playLinkText:              'Play Slideshow',
-                    pauseLinkText:             'Pause Slideshow',
-                    prevLinkText:              '&lsaquo; Previous Photo',
-                    nextLinkText:              'Next Photo &rsaquo;',
-                    nextPageLinkText:          'Next &rsaquo;',
-                    prevPageLinkText:          '&lsaquo; Prev',
-                    enableHistory:             false,
-                    autoStart:                 false,
-                    syncTransitions:           true,
-                    defaultTransitionDuration: 900,
-                    onSlideChange:             function(prevIndex, nextIndex) {
-                        // 'this' refers to the gallery, which is an extension of $('#thumbs')
-                        this.find('ul.thumbs').children()
-                        .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
-                        .eq(nextIndex).fadeTo('fast', 1.0);
-                    },
-                    onPageTransitionOut:       function(callback) {
-                        this.fadeTo('fast', 0.0, callback);
-                    },
-                    onPageTransitionIn:        function() {
-                        this.fadeTo('fast', 1.0);
-                    }
-                });
-                
-                var gallery = $('#thumbs_itj').galleriffic({
-                    delay:                     2500,
-                    numThumbs:                 3,
-                    preloadAhead:              10,
-                    enableTopPager:            false,
-                    enableBottomPager:         false,
-                    enableKeyboardNavigation:  false,
-                    maxPagesToShow:            7,
-                    imageContainerSel:         '#slideshow_itj',
-                    controlsContainerSel:      '#controls_itj',
-                    captionContainerSel:       '#caption_itj',
-                    loadingContainerSel:       '#loading_itj',
-                    renderSSControls:          false,
-                    renderNavControls:         false,
-                    playLinkText:              'Play Slideshow',
-                    pauseLinkText:             'Pause Slideshow',
-                    prevLinkText:              '&lsaquo; Previous Photo',
-                    nextLinkText:              'Next Photo &rsaquo;',
-                    nextPageLinkText:          'Next &rsaquo;',
-                    prevPageLinkText:          '&lsaquo; Prev',
-                    enableHistory:             false,
-                    autoStart:                 false,
-                    syncTransitions:           true,
-                    defaultTransitionDuration: 900,
-                    onSlideChange:             function(prevIndex, nextIndex) {
-                        // 'this' refers to the gallery, which is an extension of $('#thumbs')
-                        this.find('ul.thumbs').children()
-                        .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
-                        .eq(nextIndex).fadeTo('fast', 1.0);
-                    },
-                    onPageTransitionOut:       function(callback) {
-                        this.fadeTo('fast', 0.0, callback);
-                    },
-                    onPageTransitionIn:        function() {
-                        this.fadeTo('fast', 1.0);
-                    }
-                });
+<?php
+    }
+?>
                 
             });
 	</script>
@@ -293,19 +191,19 @@ define("ANIO", date("Y"));
                     </div>
                     <h3><a href="#">19th WONCA World Conference of Family Doctors</a></h3>
                     <div>
-                        <div id="description" class="description">
+                        <div id="description_wonca" class="description">
                             Dise&ntilde;o y administraci&oacute;n de la p&aacute;gina web. Desarrollo de sistema de env&iacute;o de res&uacute;menes a presentar durante el evento, con un proceso de evaluaci&oacute;n. Desarrollo del sistema de reservaciones de hospedaje. Todo el sistema y la p&aacute;gina web en idiomas ingl&eacute;s y espa&ntilde;ol.<br><br>
                             <a href="http://www.wonca2010cancun.com" target="_blank">www.Wonca2010Cancun.com</a>
                         </div>
-                                <div id="gallery" class="content">
-					<div id="controls" class="controls"></div>
+                                <div id="gallery_wonca" class="content">
+					<div id="controls_wonca" class="controls"></div>
 					<div class="slideshow-container">
-						<div id="loading" class="loader"></div>
-						<div id="slideshow" class="slideshow"></div>
+						<div id="loading_wonca" class="loader"></div>
+						<div id="slideshow_wonca" class="slideshow"></div>
 					</div>
-					<div id="caption" class="caption-container"></div>
+					<div id="caption_wonca" class="caption-container"></div>
 				</div>
-				<div id="thumbs" class="navigation">
+				<div id="thumbs_wonca" class="navigation">
 					<ul class="thumbs noscript">
 						<li>
 							<a class="thumb" name="webpage_es" href="images/wonca1.jpg" title="Spanish Web Page">
@@ -418,7 +316,7 @@ define("ANIO", date("Y"));
 								<img src="images/bgirl2t.jpg" alt="English Web Page" />
 							</a>
 							<div class="caption">
-								Dise&ntilde;o de la p&aacute;gina web en idioma Ingl&eacute;s.
+                                                            Dise&ntilde;o de la p&aacute;gina web en idioma Ingl&eacute;s.
 							</div>
 						</li>
 
@@ -450,18 +348,51 @@ http://www.ibsmexico.com.mx/
                     </div>
                     <h3><a href="#">Instituto Thomas Jefferson</a></h3>
                     <div>
-                        <p>
-HIMFG (Cuestionario)
-wonca
-CIS
-Naturella (BUS)
-IBS
-ITJ
-                        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                        odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                        </p>
+                        <div id="description_itj" class="description">
+                            Dise&ntilde;o y administraci&oacute;n de la p&aacute;gina web. Desarrollo de un sistema de administraci&oacute;n de alumnos. Administraci&oacute;n del servidor de correo local. Toda la p&aacute;gina web en idiomas ingl&eacute;s y espa&ntilde;ol.<br><br>
+                            <a href="http://www.itj.edu.mx" target="_blank">www.ITJ.edu.mx</a>
+                        </div>
+                                <div id="gallery_itj" class="content">
+					<div id="controls_itj" class="controls"></div>
+					<div class="slideshow-container">
+						<div id="loading_itj" class="loader"></div>
+						<div id="slideshow_itj" class="slideshow"></div>
+					</div>
+					<div id="caption_itj" class="caption-container"></div>
+				</div>
+				<div id="thumbs_itj" class="navigation">
+					<ul class="thumbs noscript">
+						<li>
+							<a class="thumb" name="webpage_es" href="images/itj1.jpg" title="Spanish Web Page">
+								<img src="images/itj1t.jpg" alt="Spanish Web Page" />
+							</a>
+							<div class="caption">
+                                                            Dise&ntilde;o de la p&aacute;gina web en idioma Espa&ntilde;ol.
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" name="webpage_en" href="images/itj2.jpg" title="English Web Page">
+								<img src="images/itj2t.jpg" alt="English Web Page" />
+							</a>
+							<div class="caption">
+								Dise&ntilde;o de la p&aacute;gina web en idioma Ingl&eacute;s.
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" name="admin" href="images/itj3.jpg" title="User Administrator">
+								<img src="images/itj3t.jpg" alt="User Administrator" />
+							</a>
+							<div class="caption">
+								Administrador de usuarios registrados y de trabajos enviados a evaluaci&oacute;n.
+							</div>
+						</li>
+
+					</ul>
+				</div>
+				<div style="clear: both;"></div>
+                        
                     </div>
                     <h3><a href="#">Contacto</a></h3>
                     <div>
